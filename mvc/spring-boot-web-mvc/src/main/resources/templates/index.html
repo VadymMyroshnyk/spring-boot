@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Management</title>
+</head>
+<body>
+<h1>User Management</h1>
+
+<form th:action="@{/users}" th:object="${user}" th:method="POST">
+    <input type="hidden" th:field="*{id}"/>
+    <label>
+        <input type="text" th:field="*{name}" placeholder="Name">
+    </label>
+    <label>
+        <input type="text" th:field="*{age}" placeholder="Age">
+    </label>
+    <button type="submit">Create User</button>
+</form>
+<p><a href="/users">View All Users</a></p>
+</body>
+</html>
