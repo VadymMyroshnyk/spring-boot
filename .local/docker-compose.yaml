@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  demo-db:
+    image: postgres
+    container_name: demo-db
+    ports:
+      - "5435:5432"
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=db
+  artifactory-service:
+    image: docker.bintray.io/jfrog/artifactory-oss
+    container_name: artifactory
+    ports:
+      - "8081:8081"
+      - "8082:8082"
