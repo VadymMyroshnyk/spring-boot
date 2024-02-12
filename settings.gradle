@@ -1,0 +1,15 @@
+rootProject.name = 'spring-boot'
+
+include 'spring-boot-magic'
+
+//mvc
+include 'mvc'
+include 'mvc:spring-web-mvc'
+include 'mvc:spring-boot-web-mvc'
+
+//starter
+include 'starter-example'
+include 'starter-example:starter'
+include 'starter-example:usage'
+include 'starter-example:starter:spring-boot-my-jdbc-starter'
+include 'starter-example:starter:spring-boot-my-jdbc-autoconfigure'
