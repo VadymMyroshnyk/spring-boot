@@ -1,0 +1,35 @@
+plugins {
+    id 'org.springframework.boot' version '3.2.2'
+    id 'io.spring.dependency-management' version '1.1.4'
+    id 'java'
+    id 'java-library'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '21'
+}
+
+repositories {
+    maven {
+        url uri("http://localhost:8082/artifactory/my-maven/")
+        credentials {
+            username 'admin'
+            password 'New_password_1'
+        }
+        allowInsecureProtocol true
+    }
+
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.example:spring-boot-my-jdbc-starter:1.0.0'
+    implementation 'org.springframework.boot:spring-boot-starter'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

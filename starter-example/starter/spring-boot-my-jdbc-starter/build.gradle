@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'java-library'
+    id 'maven-publish'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    api project(':starter-example:starter:spring-boot-my-jdbc-autoconfigure')
+}
+
+group = 'com.example'
+version = '1.0.0'
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            url uri("http://localhost:8082/artifactory/my-maven/")
+            credentials {
+                username System.getenv("JFROG_USERNAME")
+                password System.getenv("JFROG_PASSWORD")
+            }
+            allowInsecureProtocol true
+        }
+    }
+}
+
+build.dependsOn('publish')
