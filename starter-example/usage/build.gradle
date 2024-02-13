@@ -16,8 +16,8 @@ repositories {
     maven {
         url uri("http://localhost:8082/artifactory/my-maven/")
         credentials {
-            username 'admin'
-            password 'New_password_1'
+            username System.getenv("JFROG_USERNAME")
+            password System.getenv("JFROG_PASSWORD")
         }
         allowInsecureProtocol true
     }

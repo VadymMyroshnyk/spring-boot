@@ -15,12 +15,13 @@ public class HelloServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String name = request.getParameter("name");
         response.setContentType("text/html");
 
         // Hello
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
+        out.println("<h1>" + message + name + "</h1>");
         out.println("</body></html>");
     }
 
